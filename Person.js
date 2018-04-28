@@ -8,18 +8,39 @@
 // weapon this person has equipped
 
 
-class Person() {
+class Person {
 	constructor(name, health, weapon) {
 		this.name = name;
 		this.health = 100;
 		this.weapon = null;
 	}
+
+	equipWeapon(weapon) {
+		this.weapon = weapon;
+	}
+
+	render() {
+		$(this.selector).html(`
+			<img src="${this.imageURL}"/>
+			<span>${this.health}</span>
+			`);
+	}
+
+	attack(person) {
+		if (!person) {
+			console.log('You forgot to pass in a person');
+			return;
+		} 
+
+		if (this.weapon == null) {
+			console.log("You forgot to equip a weapon");
+			return;
+		}
+
+
+		person.health -= this.weapon.damage;
+		person.render();
+	}
+
 }
 
-equipWeapon(weapon) {
-	super(weapon);
-}
-
-attack(person) {
-	
-}

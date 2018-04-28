@@ -5,9 +5,9 @@
 
 
 
-class Weapon() {
-	constructor(name, damage) {
+class Weapon {
+	constructor() {
 		this.name = name;
-		this.damage = Math.floor(Math.random() * 20) + 10;
+		this.damage = Math.floor(Math.random() * 10 + 10);
 	}
 }
